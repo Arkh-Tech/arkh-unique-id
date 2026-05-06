@@ -1,0 +1,23 @@
+{
+  "name": "arkh-tech/arkh-unique-id",
+  "description": "Biblioteca para gerar códigos únicos e aleatórios",
+  "type": "library",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Tiago R. Diana",
+      "email": "tiago.diana@outlook.com.br"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "ArkhTech\\ArkhUniqueId\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=8.0"
+  }
+
+}
