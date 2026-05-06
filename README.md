@@ -1,10 +1,18 @@
 # ArkhUniqueId
 Script for generate unique id in PHP
 
+### Required
+PHP >= 8
+
 ### Download
 Clone the repository:
 
     git clone https://github.com/Arkh-Tech/arkh-unique-id.git
+
+### Install
+```shell
+composer require arkh-tech/arkh-unique-id
+```
 
 ### Usage
 Add file ArkhUniqueId in your project
