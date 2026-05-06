@@ -1,6 +1,6 @@
 <?php
 
-namespace ArkhTech\ArkhUniqueId;
+namespace ArkhTech;
 
 class ArkhUniqueId
 {

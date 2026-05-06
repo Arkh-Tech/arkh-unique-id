@@ -1,6 +1,6 @@
 {
   "name": "arkh-tech/arkh-unique-id",
-  "description": "Biblioteca para gerar códigos únicos e aleatórios",
+  "description": "Library for generating unique and random codes.",
   "type": "library",
   "minimum-stability": "stable",
   "license": "proprietary",
@@ -13,7 +13,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "ArkhTech\\ArkhUniqueId\\": "src/"
+      "ArkhTech\\": "src/"
     }
   },
   "require": {
