@@ -2,7 +2,7 @@
 Script for generate unique id in PHP
 
 ### Required
-PHP >= 8
+PHP >= 8.0
 
 ### Download
 Clone the repository:
@@ -15,7 +15,6 @@ composer require arkh-tech/arkh-unique-id
 ```
 
 ### Usage
-Add file ArkhUniqueId in your project
 ...
 ```php
 <?php
