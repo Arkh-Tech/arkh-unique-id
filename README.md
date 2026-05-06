@@ -4,7 +4,7 @@ Script for generate unique id in PHP
 ### Download
 Clone the repository:
 
-    git clone https://github.com/tiagodiana/PHP-uniqueID.git
+    git clone https://github.com/Arkh-Tech/arkh-unique-id.git
 
 ### Usage
 Add file ArkhUniqueId in your project
