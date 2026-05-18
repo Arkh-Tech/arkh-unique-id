@@ -38,37 +38,6 @@ class ArkhUniqueId
         }
     }
 
-
-    /**
-     * GERANDO UNIQUE ALPHA NUMERIC NECESSÁRIO PARA GERAR O TOKEN (UNIQUE)
-     * @return string
-     */
-    private function generateUniqueAlphaNumeric(): string
-    {
-        $unique = '';
-        for ($c = 0; $c < 4; $c++) {
-            if ($c % 2 == 0) {
-                $unique .= $this->letters[(time() * rand(0, 4)) % 48];
-            } else {
-                $unique .= $this->generateBin();
-            }
-        }
-        return $unique;
-    }
-
-    /**
-     * GERANDO UNIQUE NUMÉRICO NECESSÁRIO PARA GERAR O TOKEN (UNIQUE)
-     * @return string
-     */
-    private function generateUniqueNumeric(): string
-    {
-        $unique = '';
-        for ($c = 0; $c < 4; $c++) {
-            $unique .= $this->generateBin();
-        }
-        return $unique;
-    }
-
     private function generateUnique(bool $alphaNumeric = false): string
     {
         $unique = '';
