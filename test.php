@@ -1,22 +1,3 @@
-# ArkhUniqueId
-Script for generate unique id in PHP
-
-### Required
-PHP >= 8.0
-
-### Download
-Clone the repository:
-
-    git clone https://github.com/Arkh-Tech/arkh-unique-id.git
-
-### Install
-```shell
-composer require arkh-tech/arkh-unique-id
-```
-
-### Usage
-
-```php
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
@@ -35,6 +16,3 @@ $id = $unique->getUniqueId($separator, $charTotal, $alphaNumeric);
 
 echo $id . PHP_EOL;
 // Output example: w9a7-a2w3-S7l2
-
-?>
-```
