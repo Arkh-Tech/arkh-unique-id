@@ -114,8 +114,3 @@ class ArkhUniqueId
         return $this->generateUniqueId($separate, $charTotal, $alphaNumeric);
     }
 }
-
-
-$unique = new ArkhUniqueId();
-echo $unique->getUniqueId('-', 12, true);
-
