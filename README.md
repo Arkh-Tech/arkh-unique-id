@@ -15,7 +15,7 @@ composer require arkh-tech/arkh-unique-id
 ```
 
 ### Usage
-...
+
 ```php
 <?php
 require __DIR__.'/vendor/autoload.php';

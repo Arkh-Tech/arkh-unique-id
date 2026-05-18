@@ -31,13 +31,16 @@ class ArkhUniqueId
                 $key .= $val % 2;
             }
             return bindec($key);
-        } else
+        }
+        else
+        {
             return bindec($key);
+        }
     }
 
 
     /**
-     * GERANDO UNIQUE NECESSÁRIO PARA GERAR O TOKEN (UNIQUE)
+     * GERANDO UNIQUE ALPHA NUMERIC NECESSÁRIO PARA GERAR O TOKEN (UNIQUE)
      * @return string
      */
     private function generateUniqueAlphaNumeric(): string
@@ -54,7 +57,7 @@ class ArkhUniqueId
     }
 
     /**
-     * GERANDO UNIQUE NECESSÁRIO PARA GERAR O TOKEN (UNIQUE)
+     * GERANDO UNIQUE NUMÉRICO NECESSÁRIO PARA GERAR O TOKEN (UNIQUE)
      * @return string
      */
     private function generateUniqueNumeric(): string
@@ -66,249 +69,48 @@ class ArkhUniqueId
         return $unique;
     }
 
+    private function generateUnique(bool $alphaNumeric = false): string
+    {
+        $unique = '';
+        if($alphaNumeric)
+        {
+            for ($c = 0; $c < 4; $c++)
+            {
+                if ($c % 2 == 0)
+                {
+                    $unique .= $this->letters[(time() * rand(0, 4)) % 48];
+                }
+                else
+                {
+                    $unique .= $this->generateBin();
+                }
+            }
+        }
+        else
+        {
+            for ($c = 0; $c < 4; $c++)
+            {
+                $unique .= $this->generateBin();
+            }
+        }
+        return $unique;
 
-    /**
-     * GERANDO UNIQUE ID ALPHA NUMERIC COM 4 CARACTERES
-     * @param $separate string
-     * @return string;
-     * */
-    private function generateUnique4AlphaNumeric(string $separate): string
+    }
+
+
+    private function generateUniqueId(string $separate = '', int $charTotal = 4, bool $alphaNumeric = false): string
     {
         $unique_array = [];
-        for ($d = 0; $d < 1; $d++) {
-            $unique = $this->generateUniqueAlphaNumeric();
+        for ($d = 0; $d < ($charTotal / 4); $d++) {
+            $unique = $this->generateUnique($alphaNumeric);
             $unique_array[] = $unique;
         }
 
         return implode($separate, $unique_array);
     }
 
-    /**
-     * GERANDO UNIQUE ID ALPHA NUMERIC COM 8 CARACTERES
-     * @param $separate string
-     * @return string;
-     * */
-    private function generateUnique8AlphaNumeric(string $separate): string
+    public function getUniqueId(string $separate = '', int $charTotal = 4, bool $alphaNumeric = false): string
     {
-        $unique_array = [];
-        for ($d = 0; $d < 2; $d++) {
-            $unique = $this->generateUniqueAlphaNumeric();
-            $unique_array[] = $unique;
-        }
-
-        return implode($separate, $unique_array);
-    }
-
-    /**
-     * GERANDO UNIQUE ID ALPHA NUMERIC COM 12 CARACTERES
-     * @param $separate string
-     * @return string;
-     * */
-    private function generateUnique12AlphaNumeric(string $separate): string
-    {
-        $unique_array = [];
-        for ($d = 0; $d < 3; $d++) {
-            $unique = $this->generateUniqueAlphaNumeric();
-            $unique_array[] = $unique;
-        }
-
-        return implode($separate, $unique_array);
-    }
-
-    /**
-     * GERANDO UNIQUE ID ALPHA NUMERIC COM 16 CARACTERES
-     * @param $separate string
-     * @return string;
-     * */
-    private function generateUnique16AlphaNumeric(string $separate): string
-    {
-        $unique_array = [];
-        for ($d = 0; $d < 4; $d++) {
-            $unique = $this->generateUniqueAlphaNumeric();
-            $unique_array[] = $unique;
-        }
-
-        return implode($separate, $unique_array);
-    }
-
-    /**
-     * GERANDO UNIQUE ID ALPHA NUMERIC COM 32 CARACTERES
-     * @param $separate string
-     * @return string;
-     * */
-    private function generateUnique32AlphaNumeric(string $separate): string
-    {
-        $unique_array = [];
-        for ($d = 0; $d < 8; $d++) {
-            $unique = $this->generateUniqueAlphaNumeric();
-            $unique_array[] = $unique;
-        }
-
-        return implode($separate, $unique_array);
-    }
-
-    /**
-     * GERANDO UNIQUE ID COM 4 NUMEROS
-     * @param $separate string
-     * @return string;
-     * */
-    private function generateUnique4Numeric(string $separate): string
-    {
-        $unique_array = [];
-        for ($d = 0; $d < 1; $d++) {
-            $unique = $this->generateUniqueNumeric();
-            $unique_array[] = $unique;
-        }
-
-        return implode($separate, $unique_array);
-    }
-
-    /**
-     * GERANDO UNIQUE ID COM 8 NUMEROS
-     * @param $separate string
-     * @return string;
-     * */
-    private function generateUnique8Numeric(string $separate): string
-    {
-        $unique_array = [];
-        for ($d = 0; $d < 2; $d++) {
-            $unique = $this->generateUniqueNumeric();
-            $unique_array[] = $unique;
-        }
-
-        return implode($separate, $unique_array);
-    }
-
-    /**
-     * GERANDO UNIQUE ID COM 12 NUMEROS
-     * @param $separate string
-     * @return string;
-     * */
-    private function generateUnique12Numeric(string $separate): string
-    {
-        $unique_array = [];
-        for ($d = 0; $d < 3; $d++) {
-            $unique = $this->generateUniqueNumeric();
-            $unique_array[] = $unique;
-        }
-
-        return implode($separate, $unique_array);
-    }
-
-
-    /**
-     * GERANDO UNIQUE ID COM 16 NUMEROS
-     * @param $separate string
-     * @return string;
-     * */
-    private function generateUnique16Numeric(string $separate): string
-    {
-        $unique_array = [];
-        for ($d = 0; $d < 4; $d++) {
-            $unique = $this->generateUniqueNumeric();
-            $unique_array[] = $unique;
-        }
-
-        return implode($separate, $unique_array);
-    }
-
-    /**
-     * GERANDO UNIQUE ID COM 32 NUMEROS
-     * @param $separate string
-     * @return string;
-     * */
-    private function generateUnique32Numeric(string $separate): string
-    {
-        $unique_array = [];
-        for ($d = 0; $d < 8; $d++) {
-            $unique = $this->generateUniqueNumeric();
-            $unique_array[] = $unique;
-        }
-
-        return implode($separate, $unique_array);
-    }
-
-
-
-    public function uniqueId4Numeric($separate = ''): string
-    {
-        return $this->generateUnique4Numeric($separate);
-    }
-
-    public function uniqueId8Numeric($separate = ''): string
-    {
-        return $this->generateUnique8Numeric($separate);
-    }
-
-    public function uniqueId12Numeric($separate = ''): string
-    {
-        return $this->generateUnique12Numeric($separate);
-    }
-
-    public function uniqueId16Numeric($separate = ''): string
-    {
-        return $this->generateUnique16Numeric($separate);
-    }
-
-    /**
-     * GERANDO UNIQUE ID ALPHA NUMERIC COM 4 CARACTERES
-     * @param $separate string
-     * @return string;
-     * */
-    public function uniqueId4AlphaNumeric(string $separate = ''): string
-    {
-        return $this->generateUnique4AlphaNumeric($separate);
-    }
-
-    /**
-     * GERANDO UNIQUE ID ALPHA NUMERIC COM 8 CARACTERES
-     * @param $separate string
-     * @return string;
-     * */
-    public function uniqueId8AlphaNumeric(string $separate = ''): string
-    {
-        return $this->generateUnique8AlphaNumeric($separate);
-    }
-
-    /**
-     * GERANDO UNIQUE ID ALPHA NUMERIC COM 12 CARACTERES
-     * @param $separate string
-     * @return string;
-     * */
-    public function uniqueId12AlphaNumeric(string $separate = ''): string
-    {
-        return $this->generateUnique12AlphaNumeric($separate);
-    }
-
-
-
-    /**
-     * GERANDO UNIQUE ID ALPHA NUMERIC COM 16 CARACTERES
-     * @param $separate string
-     * @return string;
-     * */
-    public function uniqueId16AlphaNumeric(string $separate = ''): string
-    {
-        return $this->generateUnique16AlphaNumeric($separate);
-    }
-
-    /**
-     * GERANDO UNIQUE ID COM 32 CARACTERES
-     * @param $separate string
-     * @return string;
-     * */
-    public function uniqueId32AlphaNumeric(string $separate = ''): string
-    {
-        return $this->generateUnique32AlphaNumeric($separate);
-    }
-
-    /**
-     * GERANDO UNIQUE ID COM 32 CARACTERES
-     * @param $separate string
-     * @return string;
-     * */
-    public function uniqueId32Numeric(string $separate = ''): string
-    {
-        return $this->generateUnique32Numeric($separate);
+        return $this->generateUniqueId($separate, $charTotal, $alphaNumeric);
     }
 }
